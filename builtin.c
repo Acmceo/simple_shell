@@ -21,8 +21,9 @@ int _myexit(info_t *info)
 {
 	int exitcheck;
 
-	if (info->argv[1]) /* If there is an exit argument */
-	{
+if (info->argv[1]) /* If there is an exit argument */
+
+{
 		exitcheck = _erratoi(info->argv[1]);
 		if (exitcheck == -1)
 		{
@@ -34,17 +35,18 @@ int _myexit(info_t *info)
 		}
 		info->err_num = _erratoi(info->argv[1]);
 		return (-2);
-	}
+}
 	info->err_num = -1;
-	return (-2);
+return (-2);
+
 }
 
 /**
- * _mycd - Changes the current directory of the process.
- * @info: Structure containing potential arguments.
- *
- * Return: Always 0.
- */
+* _mycd - Changes the current directory of the process.
+* @info: Structure containing potential arguments.
+*
+* Return: Always 0.
+*/
 int _mycd(info_t *info)
 {
 	char *s, *dir, buffer[1024];
@@ -107,4 +109,3 @@ int _myhelp(info_t *info)
 		_puts(*arg_array); /* temp att_unused workaround */
 	return (0);
 }
-
