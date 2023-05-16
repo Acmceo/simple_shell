@@ -1,4 +1,4 @@
-GROUP TASK WITH ACHIMI 
+GROUP TASK WITH ACHIMI MUKTARI AND PATIENCE DANIEL 
 
 aSSIGNE TASK ON SIMPLE SHELL
 
@@ -121,3 +121,4 @@ In this mode, the shell should not print a prompt and should not read from stdin
 ALX SIMPLE SHELL PROJECT DONE BY
 
 1. Patience Kindai Daniel
+2. Achimi Charles Muktari
