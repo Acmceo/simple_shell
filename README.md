@@ -1,6 +1,6 @@
 GROUP TASK WITH ACHIMI MUKTARI AND PATIENCE DANIEL 
 
-aSSIGNE TASK ON SIMPLE SHELL
+ASSIGNED TASK AND INSTRCUTION ON SIMPLE SHELL
 
 0. Betty would be proud
 Write a beautiful code that passes the Betty checks
