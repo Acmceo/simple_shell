@@ -182,11 +182,9 @@ int _getline(info_t *info, char **ptr, size_t *length)
  *
  * Return: void
  */
-void sigintHandler(attribute((unused)) int sig_num)
+void sigintHandler(__attribute__((unused)) int sig_num)
 {
 	_puts("\n");
 	_puts("$ ");
 	_putchar(BUF_FLUSH);
 }
-
-

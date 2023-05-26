@@ -136,7 +136,7 @@ char *convert_number(long int num, int base, int flags)
 
 	return (ptr);
 /**
- * remove_comments - Replaces the first instance of '#' with '\0'.
+ * Remove_comments_ Replaces the first instance of '#' with '\0'.
  * @buf: Address of the string to modify.
  */
 void remove_comments(char *buf)
@@ -149,6 +149,7 @@ void remove_comments(char *buf)
 		{
 			buf[i] = '\0';
 			break;
+	
 		}
 	}
 }

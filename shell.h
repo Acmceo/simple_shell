@@ -32,44 +32,83 @@
 
 extern char **environ;
 
+/**
+ * struct liststr - Singly linked list
+ * @num: The number field
+ * @str: A string
+ * @next: Pointer to the next node
+ *
+ * Description: Structure representing a node in a singly linked list.
+ */
 typedef struct liststr
 {
-		int num;
-			char *str;
-				struct liststr *next;
+	int num;
+	char *str;
+	struct liststr *next;
 } list_t;
 
+/**
+ * struct passinfo - Contains pseudo-arguments to pass into a function
+ * @arg: A string generated from getline containing arguments
+ * @argv: An array of strings generated from arg
+ * @path: A string path for the current command
+ * @argc: The argument count
+ * @line_count: The error count
+ * @err_num: The error code for exit()s
+ * @linecount_flag: If on, count this line of input
+ * @fname: The program filename
+ * @env: Linked list local copy of environ
+ * @history: The history node
+ * @alias: The alias node
+ * @environ: Custom modified copy of environ from LL env
+ * @env_changed: On if environ was changed
+ * @status: The return status of the last exec'd command
+ * @cmd_buf: Address of pointer to cmd_buf, on if chaining
+ * @cmd_buf_type: CMD_type (||, &&, ;)
+ * @readfd: The fd from which to read line input
+ * @histcount: The history line number count
+ *
+ * Description: Structure containing pseudo-arguments to pass into a function,
+ * allowing a uniform prototype for a function pointer struct.
+ */
 typedef struct passinfo
 {
-		char *arg;
-			char **argv;
-				char *path;
-					int argc;
-						unsigned int line_count;
-							int err_num;
-								int linecount_flag;
-									char *fname;
-										list_t *env;
-											list_t *history;
-												list_t *alias;
-													char **environ;
-														int env_changed;
-															int status;
+	char *arg;
+	char **argv;
+	char *path;
+	int argc;
+	unsigned int line_count;
+	int err_num;
+	int linecount_flag;
+	char *fname;
+	list_t *env;
+	list_t *history;
+	list_t *alias;
+	char **environ;
+	int env_changed;
+	int status;
 
-																char **cmd_buf;
-																	int cmd_buf_type;
-																		int readfd;
-																			int histcount;
+	char **cmd_buf; /* Pointer to cmd ; chain buffer, for memory management */
+	int cmd_buf_type; /* CMD_type (||, &&, ;) */
+	int readfd;
+	int histcount;
 } info_t;
 
 #define INFO_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-		0, 0, 0}
+	0, 0, 0}
 
+/**
+ * struct builtin - Contains a builtin string and related function
+ * @type: The builtin command flag
+ * @func: The function
+ *
+ * Description: Struct reps a builtin command and its associated function.
+ */
 typedef struct builtin
 {
-		char *type;
-			int (*func)(info_t *);
+	char *type;
+	int (*func)(info_t *);
 } builtin_table;
 
 int hsh(info_t *, char **);
@@ -171,5 +210,5 @@ int replace_alias(info_t *);
 int replace_vars(info_t *);
 int replace_string(char **, char *);
 
-#endif
+#endif /* _SHELL_H_ */
 
