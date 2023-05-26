@@ -9,7 +9,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
-#include <stddef.>
+#include <stddef.h>
 
 /**
  * add_node - adds a node to the start of the list
